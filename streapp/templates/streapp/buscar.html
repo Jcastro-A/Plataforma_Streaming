@@ -1,0 +1,18 @@
+{% extends "streapp/plantilla_base.html" %}
+
+{% block contenido_base %}
+
+<form action="" method="GET">
+  <h1>Busqueda</h1>
+
+  <p></p>
+  {% csrf_token %}
+  <input type="integer" name="peliculas">
+  <input type="submit" value="Buscar" />
+</form>
+<p></p>
+
+
+
+
+{% endblock contenido_base %}

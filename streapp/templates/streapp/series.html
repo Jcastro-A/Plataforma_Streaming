@@ -1,0 +1,33 @@
+{% extends "streapp/plantilla_base.html" %}
+
+{% block contenido_base %}
+
+<h1>Series</h1> 
+<p></p>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Genero</th>
+        <th scope="col">fecha</th>
+        <th scope="col">Apto para</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for lista in listas %} 
+      <tr>
+        <th scope="row">{{lista.id}}</th>
+        <td>{{lista.nombre}}</td>
+        <td>{{lista.genero}}</td>
+        <td>{{lista.fecha}}</td>
+        <td>{{lista.aptoPara}}</td>
+      </tr>
+    </tbody>
+  </table>
+{% endfor %}
+
+
+<a href="{% url 'form_series' %}">Crear curso!</a>
+
+{% endblock contenido_base %}}

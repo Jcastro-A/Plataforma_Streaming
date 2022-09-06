@@ -1,0 +1,15 @@
+{% extends "streapp/plantilla_base.html" %}
+
+{% block contenido_base %}
+
+
+<form method="post">
+  <h1>Formulario de Series</h1>
+  <p></p>
+  
+    {% csrf_token %}
+    {{ form_series.as_p }}
+    <input type="submit" value="Enviar" />
+  </form>
+
+{% endblock contenido_base %}

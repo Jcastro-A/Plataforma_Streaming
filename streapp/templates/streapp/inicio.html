@@ -1,0 +1,80 @@
+{% extends "streapp/plantilla_base.html" %}
+{% load static %}
+
+{% block contenido_base %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Modern Business - Start Bootstrap Template</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{% static 'streapp/assets/favicon.ico' %}" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'streapp\css\styles.css' %}" rel="stylesheet" />
+    </head>
+    <body class="d-flex flex-column h-100">
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+
+            <!-- Header-->
+            <header class="bg-dark py-5">
+                <div class="container px-5">
+                    <div class="row gx-5 align-items-center justify-content-center">
+                        <div class="col-lg-8 col-xl-7 col-xxl-6">
+                            <div class="my-5 text-center text-xl-start">
+                                <h1 class="display-5 fw-bolder text-white mb-2">La nueva manera de disfrutar el Streaming</h1>
+                                <p class="lead fw-normal text-white-50 mb-4">StreApp es una social-app donde podrás ver, compartir y comentar sobre tus películas, series y documentales preferidos</p>
+                                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
+                                    <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Únete</a>
+                                    {% comment %} <a class="btn btn-outline-light btn-lg px-4" href="#!">Learn More</a>  {% endcomment %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5" src ="{% static 'streapp/assets/imagenbanner.jpg' %}" />
+                            alt="..." /></div>
+                    </div>
+                </div>
+            </header>
+            <!-- Features section-->
+            <section class="py-5" id="features">
+                <div class="container px-5 my-5">
+                    <div class="row gx-5">
+                        <div class="col-lg-4 mb-5 mb-lg-0"><h2 class="fw-bolder mb-0">Una mejor manera de ver Streaming</h2></div>
+                        <div class="col-lg-8">
+                            <div class="row gx-5 row-cols-1 row-cols-md-2">
+                                <div class="col mb-5 h-100">
+                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-menu-button"></i></div>
+                                    <h2 class="h5">Comenta</h2>
+                                    <p class="mb-0">Comenta con otros usuarios tu película, serie o documental favorito</p>
+                                </div>
+                                <div class="col mb-5 h-100">
+                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-sort-up"></i></div>
+                                    <h2 class="h5">Califica</h2>
+                                    <p class="mb-0">Califica para que otros usuarios conozcan tus gustos</p>
+                                </div>
+                                <div class="col mb-5 mb-md-0 h-100">
+                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-share"></i></div>
+                                    <h2 class="h5">Comparte</h2>
+                                    <p class="mb-0">Comparte con la comunidad tus escenas preferidas</p>
+                                </div>
+                                <div class="col h-100">
+                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-play-circle"></i></div>
+                                    <h2 class="h5">Disfruta</h2>
+                                    <p class="mb-0">Olvídate de hacer largas colas en el cine o esperar a que Netflix cargue</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>    
+    </body>
+</html>
+
+
+{% endblock contenido_base %}
