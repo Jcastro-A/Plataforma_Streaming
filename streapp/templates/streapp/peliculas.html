@@ -2,13 +2,38 @@
 
 {% block contenido_base %}
 
-<form method="post">
-    <h1>Formulario de películas</h1>
-    <p></p>
-  
-    {% csrf_token %}
-    {{ peliculas.as_p }}
-    <input type="submit" value="Enviar" />
-</form>
+<p></p>
 
-{% endblock contenido_base %}
+<h1 class="display-5 fw-bolder text-black mb-2">Peliculas</h1> 
+
+<p></p>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Genero</th>
+        <th scope="col">fecha</th>
+        <th scope="col">Edad Minima</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for lista in listas %} 
+      <tr>
+        <th scope="row">{{lista.id}}</th>
+        <td>{{lista.nombre}}</td>
+        <td>{{lista.genero}}</td>
+        <td>{{lista.fecha}}</td>
+        <td>{{lista.aptoPara}}</td>
+      </tr>
+    </tbody>
+  </table>
+{% endfor %}
+
+<p></p>
+<p></p>
+
+<a class="btn btn-primary btn-lg px-4 me-sm-3" href="{% url 'form_peliculas' %}">Crear pelicula!</a>
+<p></p>
+
+{% endblock contenido_base %}}

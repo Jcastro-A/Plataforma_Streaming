@@ -2,7 +2,10 @@
 
 {% block contenido_base %}
 
-<h1>Series</h1> 
+<p></p>
+
+<h1 class="display-5 fw-bolder text-black mb-2">Series</h1> 
+
 <p></p>
 <table class="table">
     <thead>
@@ -11,7 +14,7 @@
         <th scope="col">Nombre</th>
         <th scope="col">Genero</th>
         <th scope="col">fecha</th>
-        <th scope="col">Apto para</th>
+        <th scope="col">Edad Minima</th>
       </tr>
     </thead>
     <tbody>
@@ -27,7 +30,10 @@
   </table>
 {% endfor %}
 
+<p></p>
+<p></p>
 
-<a href="{% url 'form_series' %}">Crear curso!</a>
+<a class="btn btn-primary btn-lg px-4 me-sm-3" href="{% url 'form_series' %}">Crear serie!</a>
+<p></p>
 
 {% endblock contenido_base %}}

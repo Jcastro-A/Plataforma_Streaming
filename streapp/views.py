@@ -4,12 +4,19 @@ from streapp.models import Peliculas, Series, Documentales
 from django.shortcuts import render
 from streapp.forms import PrimerFormulario, SeriesFormulario, DocumentalesFormulario
 
-# Create your views here.
+# Views de Inicio -------------------------------------------------------------------
+
 def inicio(request):
     return render(request, "streapp/inicio.html")
 
+# Views de Peliculas ----------------------------------------------------------------
 
 def peliculas(request):
+        listas = Peliculas.objects.all()
+        return render(request, "streapp/peliculas.html", {"listas":listas})
+    
+
+def form_peliculas(request):
     if request.method == 'POST':
         forma = PrimerFormulario(request.POST)
 
@@ -20,15 +27,14 @@ def peliculas(request):
             return render(request, "streapp/inicio.html")
     else:
         forma= PrimerFormulario()
-    return render(request, "streapp/peliculas.html", {"peliculas": forma})
+    return render(request, "streapp/form_peliculas.html", {"form_peliculas": forma})
 
-
+# Views de Series -------------------------------------------------------------------
 
 def series(request):
         listas = Series.objects.all()
         return render(request, "streapp/series.html", {"listas":listas})
-    
-    
+        
 
 def form_series(request):
     if request.method == 'POST':
@@ -43,9 +49,14 @@ def form_series(request):
         forma= SeriesFormulario()
     return render(request, "streapp/form_series.html", {"form_series": forma})
 
-
+# Views de Documentales -------------------------------------------------------------
 
 def documentales(request):
+        listas = Documentales.objects.all()
+        return render(request, "streapp/documentales.html", {"listas":listas})
+    
+    
+def form_documentales(request):
     if request.method == 'POST':
         forma = DocumentalesFormulario(request.POST)
 
@@ -56,7 +67,10 @@ def documentales(request):
             return render(request, "streapp/inicio.html")
     else:
         forma= DocumentalesFormulario()
-    return render(request, "streapp/documentales.html", {"documentales": forma})
+    return render(request, "streapp/form_documentales.html", {"form_documentales": forma})
+
+# Otras Views  -----------------------------------------------------------------------
+
 
 def buscar(request):
     return render(request, "streapp/buscar.html")
