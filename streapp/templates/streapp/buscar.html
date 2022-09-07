@@ -2,17 +2,41 @@
 
 {% block contenido_base %}
 
-<form action="" method="GET">
-  <h1>Busqueda</h1>
-
-  <p></p>
-  {% csrf_token %}
-  <input type="integer" name="peliculas">
-  <input type="submit" value="Buscar" />
-</form>
 <p></p>
 
+<h1 class="display-5 fw-bolder text-black mb-2">Buscar Serie</h1> 
 
+<p></p>
+{%if genero %}
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Genero</th>
+        <th scope="col">fecha</th>
+        <th scope="col">Edad Minima</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for lista in listas %} 
+      <tr>
+        <th scope="row">{{lista.id}}</th>
+        <td>{{lista.nombre}}</td>
+        <td>{{lista.genero}}</td>
+        <td>{{lista.fecha}}</td>
+        <td>{{lista.aptoPara}}</td>
+      </tr>
+    </tbody>
+    {% endfor %}
+  </table>
+  {% else %}
+  <h1> No hay series con esa busqueda </h1>
+  {% endif %}
+
+
+<p></p>
+<p></p>
 
 
 {% endblock contenido_base %}

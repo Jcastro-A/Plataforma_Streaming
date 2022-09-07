@@ -24,7 +24,7 @@ def form_peliculas(request):
             data = forma.cleaned_data
             pelis = Peliculas(nombre=data['nombre'], genero=data['genero'], fecha=data['fecha'], aptoPara=data['aptoPara'])
             pelis.save()
-            return render(request, "streapp/inicio.html")
+            return render(request, "streapp/inicio.html", {'exitoso': True})
     else:
         forma= PrimerFormulario()
     return render(request, "streapp/form_peliculas.html", {"form_peliculas": forma})
@@ -44,7 +44,7 @@ def form_series(request):
             data = forma.cleaned_data
             seri = Series(nombre=data['nombre'], genero=data['genero'], fecha=data['fecha'], aptoPara=data['aptoPara'])
             seri.save()
-            return render(request, "streapp/inicio.html")
+            return render(request, "streapp/inicio.html", {'exitoso': True})
     else:
         forma= SeriesFormulario()
     return render(request, "streapp/form_series.html", {"form_series": forma})
@@ -64,21 +64,23 @@ def form_documentales(request):
             data = forma.cleaned_data
             docu = Documentales(nombre=data['nombre'], genero=data['genero'], fecha=data['fecha'], aptoPara=data['aptoPara'])
             docu.save()
-            return render(request, "streapp/inicio.html")
+            return render(request, "streapp/inicio.html", {'exitoso': True})
     else:
         forma= DocumentalesFormulario()
     return render(request, "streapp/form_documentales.html", {"form_documentales": forma})
 
-# Otras Views  -----------------------------------------------------------------------
 
+# Prueba busqueda Views  -----------------------------------------------------------------------
+
+def buscar_serie(request):
+    return render(request, "streapp/buscar_serie.html")
 
 def buscar(request):
-    return render(request, "streapp/buscar.html")
-
-def buscador(request):
-    if request.GET["pelicula"]:
-        pelicula = request.GET["pelicula"]
-        peliculas = Peliculas.objects.filter(pelicula__icontains=pelicula)
-        return render(request, "streapp/peliculas.html",{"peliculas":peliculas})
+    if request.GET["genero"]:
+        genero = request.GET["genero"]
+        genero = Series.objects.filter(genero__icontains=genero,)
+        return render(request, "streapp/buscar.html", {'genero': genero})
     else:
-        return render(request, "streapp/peliculas.html",{"peliculas":[]})
+        return render(request, "streapp/buscar.html", {'genero': []})    
+
+

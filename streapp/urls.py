@@ -1,6 +1,7 @@
 from django.urls import path
 from streapp import views
-from streapp.views import inicio, peliculas, series, documentales, buscar, form_series, form_peliculas, form_documentales
+from streapp.views import inicio, peliculas, series, documentales, buscar, form_series, form_peliculas, form_documentales, buscar_serie
+
 
 urlpatterns = [
     
@@ -12,7 +13,8 @@ urlpatterns = [
     
     # urls de Series
     path ('series/', views.series,  name="series"), 
-    path ('form_series/', views.form_series,  name="form_series"), 
+    path ('form_series/', views.form_series,  name="form_series"),
+    path ('buscar_serie/', views.buscar_serie,  name="buscar_serie"),
     
     # urls de Documentales
     path ('documentales/', views.documentales,  name="documentales"), 

@@ -27,13 +27,14 @@
         <td>{{lista.aptoPara}}</td>
       </tr>
     </tbody>
+    {% endfor %}
   </table>
-{% endfor %}
 
 <p></p>
 <p></p>
 
 <a class="btn btn-primary btn-lg px-4 me-sm-3" href="{% url 'form_series' %}">Crear serie!</a>
+<a class="btn btn-primary btn-lg px-4 me-sm-3" href="{% url 'buscar_serie' %}">Buscar serie!</a>
 <p></p>
 
-{% endblock contenido_base %}}
+{% endblock contenido_base %}
